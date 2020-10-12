@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <section id="inspiration">
+    <div class="section-title section-top" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60")>
+        <h3 class="align-items-center">Inspiration</h3>
+    </div>
+    
+    <div class="container mini-banner">
+      <p>Quelques citations pour démarrer. A vous d'ajouter les vôtres dans votre carnet !</p>
+    </div>
+    
+    {% for inspiration in inspirations %}
+
+      <div class="citation-card">
+        <img src="https://images.unsplash.com/photo-1491841573634-28140fc7ced7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60" />
+        
+        <div class="citation-card-infos">
+          
+          <div class="pb-3">
+            <h2 >{{inspiration['auteur']}} - <em>{{inspiration['livre']}}, {{inspiration['annee_citation']}}</em></h2>    
+          </div>
+          <p>{{inspiration['texte']}}</p>   
+        </div>
+
+      </div>
+      
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}

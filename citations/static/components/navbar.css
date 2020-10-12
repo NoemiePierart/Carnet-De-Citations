@@ -1,0 +1,93 @@
+.navbar-stprojet {
+  justify-content: space-between;
+  font-family: 'Work Sans', sans-serif;
+  height: 55px;
+  width: 100vw;
+  background: white;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  padding: 0px 5px;
+  z-index: 1;
+  align-items: center;
+  text-decoration: none;
+  position: fixed !important;
+}
+
+.navbar-brand h5 {
+  text-decoration: none;
+  color: #616668;
+  letter-spacing: 3px;
+  font-size: 18px;
+  padding: 4px;
+}
+
+.navbar-items-stprojet {
+  color: #616668;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.navbar-stprojet-horizontal{
+  justify-content: flex-end; 
+}
+
+.navbar-stprojet-horizontal a {
+  padding: 0px 12px 4px 12px;
+}
+
+.navbar-stprojet-vertical{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 12px 20px;
+  font-size: 20px;
+  color: #484848;
+  cursor: pointer;
+}
+
+.dropdown{
+  position: relative !important;
+}
+
+.dropdown-menu.show{
+  position: absolute;
+  top: 53px;
+  left: auto;
+  z-index: 1000;
+  float: left;
+  margin: 0px;
+  border: none;
+  padding: 10px 15px;
+  min-width: 130px;
+}
+
+.dropdown-menu-vertical{
+  left: auto;
+  right: 0;
+}
+
+.navbar-stprojet-dropdown-menu{
+  margin-top: 15px;
+  box-shadow: 1px 1px 4px #E6E6E6;
+}
+
+.navbar .auth-info{
+  color: #bf9f29;
+}
+
+#navbar-logo {
+  font-size: 25px;
+  color: #bf9f29;
+  margin-right: 15px;
+  border: 2px solid #bf9f29;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+#navbar-dropwdonw-icon{
+  font-size: 25px;
+  color: darkgray;
+  margin-right: 15px;
+  padding: 4px;
+}

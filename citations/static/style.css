@@ -1,0 +1,136 @@
+@import url("components/banner.css");
+@import url("components/menu.css");
+@import url("components/navbar.css");
+@import url("components/citation-card.css");
+@import url("components/forms.css");
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: rgba(245,245,245,0.8);
+}
+
+h1 {
+    margin-top: 25px;
+    margin-bottom: 12.5px;
+    line-height: 1.4;
+    font-family: 'Work Sans', sans-serif;
+}
+
+h2{
+    font-size: 45px;
+    font-weight: bold
+    z-index: -1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+h3{
+  color: white;
+  padding-top: 120px;
+  font-size: 35px;
+  letter-spacing: 3px;
+  font-weight: 300;
+  z-index: -1;
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+}
+
+h4, h5 {
+    font-family: 'Work Sans', sans-serif;
+}
+
+p {
+    text-align: justify;
+    font-size: 15px;
+    margin: 0 0 12.5px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.container {
+    padding-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    max-width: 600px;
+}
+
+.section-title {
+    height: 40vh;
+    background-attachment: fixed;
+    background-position: 50%;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+}
+
+@media (max-width: 767px){
+.hidden-xs {
+    display: none !important;
+}
+}
+
+@media (min-width: 768px){
+.hidden-md {
+    display: none !important;
+}
+}
+
+.footer {
+    background: white;
+    height: 55px;
+    color: rgba(0,0,0,0.3);
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#register .section-title {
+    background-position: 40% 40%;
+    background-size: cover;
+    background-attachment: unset;
+}
+   
+.flash {
+  margin: 1em 0;
+  padding: 1em;
+  background: #cae6f6;
+  border: 1px solid #377ba8;
+} 
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #bf9f29;
+  margin-top: 20px !important;
+  border: 0px;
+  transition: background 0.3s ease;
+  font-size: 13px;
+}
+
+.btn-flat:hover {
+  background: #c8bc5e;
+  color: white;
+}
+
+.mini-banner {
+  text-align: center !important
+}
+
+.mini-banner p {
+  text-align: center !important
+}
+
+.icon {
+  color: #bf9f29;
+  font-size: 20px;
+  margin: 10px;
+}
+

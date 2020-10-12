@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Passages{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('passages.create') }}">New</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% for passage in passages %}
+
+    <div class="citation-card">
+      <img src="https://images.unsplash.com/photo-1491841573634-28140fc7ced7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60" />
+      <div class="citation-card-infos">
+        <h2>{{passage['auteur']}} - {{passage['livre']}}</h2>
+        <p>{{passage['date_citation']}}</p>
+        <p>{{passage['texte']}}</p>
+        <p><em>Ajouté le {{passage['date_ajout']}}</em></p>
+        <p><em>{{passage['commentaire']}}</em></p>
+      </div>
+    </div>
+
+  {% endfor %}

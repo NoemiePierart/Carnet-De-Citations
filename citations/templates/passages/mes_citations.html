@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+ <section id="mes_citations">
+    <div class="section-title section-top" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1580719574022-021fba0bd20c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60')">
+        <h3 class="align-items-center">Mes citations</h3>
+    </div>
+  
+    {% if message : %}
+      <div id="flash">
+        {{ message }}
+      </div>
+    {% else: %}
+      <p hidden></p>
+    {% endif %}
+    
+    
+    <!--Si l'utilisateur n'a pas de citations : -->
+    {% if not passages : %}
+    <div class="container mini-banner">
+        <p>Vous n'avez pas encore de citation.</p>
+        <p>Besoin d'inspiration ? <a href="{{url_for('passages.inspiration')}}">Cliquer ici </a></p>
+        <br>
+        <div><a href="{{url_for('passages.create')}}" class="btn-flat">Ajouter</a></div>
+    </div>
+
+    <!--Si l'utilisateur a déjà des citations : -->
+    {% else : %}
+      <div class="container mini-banner">  
+        <p>Retrouvez ici vos citations. Bonne lecture !</p>
+        <div><a href="{{url_for('passages.create')}}" class="btn-flat">Ajouter</a></div>
+      </div>
+      {% for passage in passages %}
+
+      <div class="citation-card">
+        <img src="https://images.unsplash.com/photo-1491841573634-28140fc7ced7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60" />
+        
+        <div class="citation-card-infos">
+          
+          <div class="first-line d-flex justify-content-between">
+            <!--Auteur, oeuvre, date -->
+            <h2>{{passage['auteur']}} - <em>{{passage['livre']}}, {{passage['annee_citation']}}</em></h2>
+            <!--Icones update et delete -->
+            <div class="d-flex justify-content-end">
+              <a class="action icon" href="{{ url_for('passages.update', id=passage['id']) }}"><i class="far fa-edit"></i></a>
+              
+              <form action="{{ url_for('passages.delete', id=passage['id']) }}" method="post">
+                  <button id="delete-form" class="danger icon" type="submit" onclick="return confirm('Etes-vous sûr de vouloir supprimer cette citation?');"><i class="far fa-trash-alt"></i></button>
+              </form>
+
+            </div>
+          </div>
+          <p>{{passage['texte']}}</p>   
+        </div>
+
+      </div>
+      
+      {% endfor %}
+    {% endif%}
+  </section>
+
+{% endblock %}

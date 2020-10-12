@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section id="ajouter">
+        <div class="section-title section-top" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60")>
+            <h3 class="align-items-center">Ajouter une citation</h3>
+        </div>
+
+    	<form method="post" class="form">
+            <label for="auteur">Auteur *</label>
+            <br>
+            <input name="auteur" type="text" id="auteur" value="{{ request.form['auteur']}}" required></input>
+            <br>
+            <label for="livre">Oeuvre</label>
+            <br>
+            <input name="livre" type="text" id="livre" value="{{ request.form['livre']}}"></input>
+            <br>
+            <label for="date_citation">Année</label>
+            <br>
+            <input name="annee_citation" type="number" id="annee_citation" value="{{ request.form['annee_citation']}}"></input>
+            <br>
+            <label for="texte">Citation *</label>
+            <br>
+            <textarea name="texte" class="w-100" rows="6" id="texte" value="{{ request.form['texte']}}"></textarea>
+            <br>
+            <input class="btn btn-flat" type="submit" value="Ajouter">
+        </form>
+
+    </section>
+
+{% endblock %}

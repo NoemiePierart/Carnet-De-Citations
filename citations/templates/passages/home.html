@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  <section id="accueil">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60)">
+        <div class="banner-content">
+            <h1>MON CARNET DE CITATIONS</h1>
+            <h2 class="typing"></h2>
+        </div>
+    </div>
+
+    <div class="container p-5">
+      <table>
+        <tr>
+          <td class="icon mb-3"><i class="fas fa-angle-double-left"></i></td>
+          <td><p class="ml-4 mb-4">Une phrase qui vous inspire, un vers qui vous émeut, un paragraphe qui vous éclaire...</p></td>
+        </tr>
+        <tr>
+          <td class="icon mb-3"><i class="fas fa-pencil-alt"></i></td>
+          <td><p class="ml-4 mb-4">Notez-les dans votre carnet pour les retrouver dès que vous le souhaitez.</p></td>
+        </tr>
+        <tr>
+          <td class="icon mb-3"><i class="fas fa-book"></i></td>
+          <td><p class="ml-4">Vos auteurs préférés sont toujours à vos côtés !</p></td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+  <script>
+    new TypeIt('.typing', {
+      speed: 90
+    })
+      .type("Vos passages préférés toujours sous la main")
+    .go();
+  </script>
+
+{% endblock %}

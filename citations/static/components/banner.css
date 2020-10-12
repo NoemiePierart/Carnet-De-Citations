@@ -1,0 +1,28 @@
+.banner {
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 150px 0;
+  height: calc(100vh - 55px);
+  background-position: 50% 13%;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.banner-content {
+  width: 500px;
+  margin-top: 90px;
+}
+
+.banner h1 {
+  font-size: 40px;
+  letter-spacing: 4px;
+}
+
+.banner h2 {
+  opacity: 0.9;
+  font-size: 25px;  
+}
