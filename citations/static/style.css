@@ -83,12 +83,16 @@ p {
 
 .footer {
     background: white;
-    height: 55px;
+    height: 60px;
     color: rgba(0,0,0,0.3);
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top : 30px;
+    padding: 15px 0px;  
+}
+
+.footer p {
+    width: 100%;
+    text-align: center;
+    margin: 0px;
 }
 
 #register .section-title {

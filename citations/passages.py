@@ -107,43 +107,48 @@ def update(id):
         return render_template('passages/update.html', passage=passage, old_auteur=old_auteur, old_livre=old_livre, old_texte=old_texte, old_annee_citation=old_annee_citation)
 
     if request.method == "POST":
-        passage = get_passage(id)
-        new_auteur = request.form["auteur"]
-        new_livre = request.form["livre"]
-        new_texte = request.form["texte"]
-        new_annee_citation = int(request.form["annee_citation"])
+        db = get_db()
+        passage = db.execute(
+                "SELECT * FROM passages WHERE id = ?", 
+                (id,),
+            ).fetchone()
+
+        if request.form['auteur'] :
+            new_auteur = request.form["auteur"]
+        else :
+            new_auteur = passage['auteur']
+
+        if request.form['livre'] :
+            new_livre = request.form['livre']
+        else : 
+            new_livre = passage['livre']
+
+        if request.form['annee_citation'] :
+            new_annee_citation = int(request.form['annee_citation'])
+        else : 
+            new_annee_citation = passage['annee_citation']
+
+        if request.form['texte'] :
+            new_texte = request.form['texte']
+        else : new_texte = passage['texte']
+        
         new_date_ajout = datetime.now()
+        
         new_commentaire = "mon commentaire"
-        error = None
-
-        if not new_auteur:
-            error = 'Merci de saisir un auteur'
-
-        if not new_livre:
-            error = 'Merci de saisir une oeuvre'
-
-        if not new_texte:
-            error = 'Merci de saisir un texte'
-
-        if error is not None:
-            flash(error)
-
-        else:
-            db = get_db()
-            db.execute("UPDATE passages SET auteur=?, livre=?, texte=?, annee_citation=?, commentaire=? WHERE id = ?", (new_auteur, new_livre, new_texte, new_annee_citation, new_commentaire, id,)
-                )
-            db.commit()
-            message = "Votre citation a bien été modifiée ! "
-            passages = db.execute("SELECT * FROM passages WHERE user_id=?", (g.user['id'],)).fetchall()
-            return render_template('passages/mes_citations.html', message=message, passages=passages)
+        
+        db = get_db()
+        db.execute("UPDATE passages SET auteur=?, livre=?, texte=?, annee_citation=?, commentaire=? WHERE id = ?", (new_auteur, new_livre, new_texte, new_annee_citation, new_commentaire, id,)
+            )
+        db.commit()
+        message = "Votre citation a bien été modifiée ! "
+        passages = db.execute("SELECT * FROM passages WHERE user_id=?", (g.user['id'],)).fetchall()
+        #return render_template('passages/mes_citations.html', message=message, passages=passages)
+        return redirect(url_for("passages.mes_citations"))
 
 @bp.route("/<int:id>/delete", methods=("POST",))
 @login_required
 def delete(id):
-    """Delete a post.
-    Ensures that the post exists and that the logged in user is the
-    author of the post.
-    """
+
     get_passage(id)
     db = get_db()
     db.execute("DELETE FROM passages WHERE id = ?", (id,))
