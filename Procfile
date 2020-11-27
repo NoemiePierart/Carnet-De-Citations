@@ -1,1 +1,1 @@
-web: gunicorn citations:app
+web: gunicorn "myflaskmodule:create_app()"
