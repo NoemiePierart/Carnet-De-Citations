@@ -7,3 +7,4 @@ Werkzeug==1.0.1
 django
 gunicorn
 django-heroku
+psycopg2-binary-2.8.6
