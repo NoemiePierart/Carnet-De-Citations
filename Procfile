@@ -1,1 +1,1 @@
-web: gunicorn citations.wsgi --log-file -
+web: gunicorn passages.wsgi --log-file -
