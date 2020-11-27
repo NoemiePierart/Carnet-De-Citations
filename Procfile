@@ -1,1 +1,1 @@
-web: gunicorn "myflaskmodule:create_app()"
+web: gunicorn "citations:create_app()"
