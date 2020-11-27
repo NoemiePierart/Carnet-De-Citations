@@ -1,1 +1,0 @@
-web: gunicorn passages:citations --log-file -

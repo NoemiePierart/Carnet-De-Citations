@@ -1,4 +1,6 @@
-#!/Users/noemie.pierartgmail.com/code/noemiepierart.github.io/carnet/venv/bin/python3
+#!/bin/sh
+'''exec' "/Users/noemie.pierartgmail.com/Code/noemiepierart/Carnet de citations/venv/bin/python3" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys

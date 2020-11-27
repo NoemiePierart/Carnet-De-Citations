@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
@@ -64,7 +66,7 @@ def create():
             db.execute("INSERT INTO passages (auteur, livre, texte, annee_citation, date_ajout, commentaire, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)", (auteur, livre, texte, annee_citation, date_ajout, commentaire, g.user['id']),
             )
             db.commit()
-            message = "Votre citation a bien été ajoutée à votre carnet ! "
+            message = "Votre citation a bien ete ajoutee à votre carnet !"
             passages = db.execute("SELECT * FROM passages WHERE user_id=?", (g.user['id'],)).fetchall()
             return render_template('passages/mes_citations.html', message=message, passages=passages)
             
