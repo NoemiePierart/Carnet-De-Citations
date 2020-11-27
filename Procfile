@@ -1,1 +1,1 @@
-web: gunicorn app:citations 
+web: gunicorn citations:app
